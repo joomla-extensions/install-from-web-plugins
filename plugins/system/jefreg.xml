@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="2.5" type="plugin" group="system" method="upgrade">
-	<name>JEF-HikaShop Integration</name>
+<install version="1.5" type="plugin" group="system" method="upgrade">
+	<name>System - JEFReg</name>
 	<author>Efthimios Mavrogeorgiadis</author>
-	<creationDate>14 November 2013</creationDate>
+	<creationDate>5 September 2013</creationDate>
 	<copyright>Copyright (C) 2013 Efthimios Mavrogeorgiadis. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>admin@iota.gr</authorEmail>
 	<authorUrl>www.iota.gr</authorUrl>
 	<version>1.0.0</version>
-	<description>JEF integration to allow automatic installation of extensions upon payment of a plan with HikaShop.</description>
+	<description>Support for downloads after registration through Joomla! Extension Finder</description>
 	<files>
-		<filename plugin="jefhikashop">jefhikashop.php</filename>
-		<filename>index.html</filename>
+		<filename plugin="jefreg">jefreg.php</filename>
 	</files>
-	<updateservers>
-		<server type="extension" priority="1" name="JEF-HikaShop Update Site">http://www.iota.gr/data/joomla/jefhikashop/jefhikashop.xml</server>
-	</updateservers>
-</extension>
+	<params>
+		<param name="files" type="textarea" default="" label="Files to download" description="Enter the files to be downloaded. You need to know the extension's JED ID (it is the number at the end of the extension's JED URL) and the URL to the file to be downloaded. Add one file per line using the following format: JEDid=>URL, e.g. 12345=>http://www.mysite.com/file_to_download.zip. You can even use the update file you might be using, e.g. 12345=>http://www.mysite.com/update.xml" rows="20" cols="50" />
+		<param name="entry" type="text" default="" label="Entry URL" description="Enter the URL users should be redirected to upon arrival at your website" />
+	</params>
+</install>
