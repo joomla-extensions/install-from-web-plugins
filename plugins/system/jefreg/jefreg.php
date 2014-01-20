@@ -169,7 +169,7 @@ class PlgSystemJefreg extends JPlugin
 		// Basic clean up of 'files' parameter as set in plugin options
 		$files = $this->params->get('files', null);
 		$files = preg_replace('/\s*=\s*>\s*/', '=>', $files);
-		$files = preg_replace('/^\s*\**\s*/', '*', $files);
+		$files = preg_replace('/[^\S\n]*\*\s*/', '*', $files);
 		$files = preg_split('/\s+/', $files);
 
 		// Match the $_POST value of the JED ID [$appid] with the extensions available on the server
@@ -183,7 +183,7 @@ class PlgSystemJefreg extends JPlugin
 				$installfrom = '&installfrom='.base64_encode($matches[1].'&sessid='.session_id());
 			}
 			// Check for file that is available after purchase
-			elseif (preg_match('/^\*.*:'.$appid.'=>(.+)/', trim($f), $matches))
+			elseif (preg_match('/^\*.*'.$appid.'=>(.+)/', trim($f), $matches))
 			{
 				// If found, set commercial flag ON
 				$this->setCommercialOn();
