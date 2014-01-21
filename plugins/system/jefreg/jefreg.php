@@ -134,7 +134,7 @@ class PlgSystemJefreg extends JPlugin
 		$jefreg = $this->getJEFReg();
 		
 		// Use JFormRuleUrl to check if $_POST['installat'] is valid URL
-		$field = new SimpleXMLElement('<field></field>');
+		$field = new SimpleXMLElement('<field required="true"></field>');
 		$rule = new JFormRuleUrl;
 		return $rule->test($field, $jefreg['installat']) &&
 			$this->getInstallFrom($jefreg['installapp']);
