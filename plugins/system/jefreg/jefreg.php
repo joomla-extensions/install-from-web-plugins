@@ -180,7 +180,7 @@ class PlgSystemJefreg extends JPlugin
 			// Check for file that is available after registration
 			if (preg_match('/^'.$appid.'=>(.+)/', trim($f), $matches))
 			{
-				$installfrom = '&installfrom='.base64_encode($matches[1].'&sessid='.session_id());
+				$installfrom = '&installfrom='.base64_encode($matches[1]).'&sessid='.session_id();
 			}
 			// Check for file that is available after purchase
 			elseif (preg_match('/^\*.*'.$appid.'=>(.+)/', trim($f), $matches))
